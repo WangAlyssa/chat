@@ -15,6 +15,10 @@ const {getUsers,getOneMsg,unReadMsg,updateMsg,getGroup,getOneGroupMsg,updateGrou
 const {msg,grouMsg} =require('../server/chat')
 const {createGroup,insertGroupUser,getGroupDetail,getGroupUsers,deleteGroupUser,deleteGroup,updateGroupDetail,getGroupName,updateGroupName} =require('../server/group')
 
+r.get('/', (req, res) => {
+    res.send('Index router is working!');
+});
+
 //校验token
 r.get('/judgeToken',(req,res)=>{
     res.send({status:200})
