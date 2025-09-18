@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
@@ -70,3 +71,10 @@ app.use((err, req, res, next) => {
     msg: err.message,
   });
 });
+
+// 测试用 GET 路由
+router.get('/', (req, res) => {
+  res.send('Index router is working!');
+});
+
+module.exports = router;
