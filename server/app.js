@@ -17,17 +17,19 @@ const corsOptions = {
 };
 
 const PORT = 7001;
-const serve = app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`服务器启动成功,浏览器打开:localhost:${PORT}`);
 });
 
-const socketio = require("socket.io")(serve, {
+const socketio = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["get", "post"],
   },
 });
+
 require('./dao/socket')(socketio);
+
 
 app.use(bodyParser.urlencoded({
   limit: "50mb",
